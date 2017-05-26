@@ -1,0 +1,13 @@
+@font-face {
+  font-family: gilroy-heavy;
+  src: url(gilroy-heavy.woff2) format('woff2'), url(gilroy-heavy.woff) format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: gilroy-extrabold;
+  src: url(gilroy-extrabold-.woff2) format('woff2'), url(gilroy-extrabold-.woff) format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
