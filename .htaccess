@@ -51,25 +51,11 @@ ExpiresDefault "access 1 month"
 </IfModule>
 ## EXPIRES CACHING ##
 
-<IfModule mod_headers.c>
-    Header set Connection keep-alive
-    <filesmatch "\.(ico|flv|gif|swf|eot|woff|otf|ttf|svg)$">
-        Header set Cache-Control "max-age=2592000, public"
-    </filesmatch>
-    <filesmatch "\.(jpg|jpeg|png)$">
-        Header set Cache-Control "max-age=1209600, public"
-    </filesmatch>
-    <filesmatch "\.(eot|woff|otf|ttf|svg)$">
-        Header set Cache-Control "max-age=2592000, public"
-    </filesmatch>
-    # css and js should use private for proxy caching https://developers.google.com/speed/docs/best-practices/caching#LeverageProxyCaching
-    <filesmatch "\.(css)$">
-        Header set Cache-Control "max-age=31536000, private"
-    </filesmatch>
-    <filesmatch "\.(js)$">
-        Header set Cache-Control "max-age=1209600, private"
-    </filesmatch>
-    <filesMatch "\.(x?html?|php)$">
-        Header set Cache-Control "max-age=600, private, must-revalidate"
-      </filesMatch>
-</IfModule>
+# One year for image files
+<filesMatch ".(jpg|jpeg|png|gif|ico)$">
+Header set Cache-Control "max-age=31536000, public"
+</filesMatch>
+# One month for css and js
+<filesMatch ".(css|js)$">
+Header set Cache-Control "max-age=2628000, public"
+</filesMatch>
